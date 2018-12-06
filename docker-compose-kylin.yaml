@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  nodeosd:
+    image: noprom/eos:pbft-v1.0.1
+    command: /opt/eosio/bin/nodeos --data-dir=/data --config-dir=/etc/nodeos
+    hostname: nodeosd
+    ports:
+      - 7777:8888
+      - 9875:9876
+    expose:
+      - "8888"
+    volumes:
+      - /root/bostest-zsq/lib-test/bosio/config:/etc/nodeos
+      - /root/bostest-zsq/lib-test/bosio/data:/data
